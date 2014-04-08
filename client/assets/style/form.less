@@ -1,0 +1,101 @@
+form
+{
+  display: block;
+
+  fieldset
+  {
+    border: none;
+    padding: 0px;
+
+    legend
+    {
+      color: #FFFFFF;
+      font-size: 20px;
+      font-family: "Bangers";
+      padding: 0px 5px;
+      border: 1px solid #AAAAAA;
+      border-top: none;
+      border-left: none;
+      border-bottom-right-radius: 5px;
+      background: rgba(0, 0, 0, .5);
+      padding: 2px 5px;
+    }
+  }
+}
+
+label
+{
+  color: #FFFFFF;
+  font-family: "Bangers";
+  font-size: 20px;
+  text-shadow: 1px 1px #000000;
+}
+
+input
+{
+  &[type="text"], &[type="password"]
+  {
+    border: 1px solid #999999;
+    font-size: 20px;
+    font-family: "Bangers";
+    padding: 2px 5px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, .6);
+    box-sizing: border-box;
+    color: #ffad00;
+
+    &:focus
+    {
+      color: #ffad00;
+      background: rgba(0, 0, 0, .7);
+      border-color: #f4aa0e;
+    }
+  }
+
+  &[type="submit"], &[type="button"]
+  {
+    background: #f4aa0e;
+    border-radius: 3px;
+    font-size: 20px;
+    color: #4d3c17;
+    border: 1px solid #FFFFFF;
+    font-family: "Bangers";
+    cursor: pointer;
+
+    &:hover, &:focus
+    {
+      background: #ffe11a;
+    }
+
+    &:disabled
+    {
+      background: #333333;
+      color: #6d6d78;
+      cursor: default;
+    }
+  }
+}
+
+select
+{
+  border: 1px solid #999999;
+  font-size: 20px;
+  font-family: "Bangers";
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .6);
+  box-sizing: border-box;
+  color: #ffad00;
+
+  option
+  {
+    background: #010202;
+  }
+
+  &:disabled
+  {
+    background: #333333 !important;
+    color: #6d6d78 !important;
+    cursor: default;
+  }
+}

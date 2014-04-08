@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+  <link rel="stylesheet/less" type="text/css" href="assets/style/reset.css"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/typo.css"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/960_24_col.css"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/jquery_ui.css"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/fonts.css"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/icons.css"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/table.less"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/form.less"/>
+  <link rel="stylesheet/less" type="text/css" href="assets/style/main.less"/>
+
+  <script type="text/javascript">
+    less = {env: "production"};
+  </script>
+
+  <script type="text/javascript" src="lib/less.js"></script>
+  <script type="text/javascript" src="lib/jquery.js"></script>
+  <script type="text/javascript" src="lib/jquery_ui.js"></script>
+  <script type="text/javascript" src="lib/swfobject.js"></script>
+</head>
+
+<body>
+<div id="wrapper" class="container_24">
+<div id="app" class="grid_20 push_2">
+<div id="login">
+  <h1 id="logo" class="grid_20" unselectable>&lt;? PHP Okey ?&gt;</h1>
+
+  <form id="login_form" class="grid_10 push_5 clearfix">
+    <fieldset>
+      <legend>Kullanıcı Girisi</legend>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="username">Kullanıcı Adı</label></td>
+            <td><input type="text" id="username" required></td>
+          </tr>
+
+          <tr>
+            <td><label for="password">Sifre</label></td>
+            <td><input type="password" id="password" required></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>
+              <input type="submit" value="Giris" id="login_btn" formnovalidate>
+              <input type="button" value="Kayit Ol >" id="to_register">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+  </form>
+
+  <form id="register_form" class="grid_10 push_5 clearfix" style="display: none;">
+    <fieldset>
+      <legend>Kullanıcı Kaydı</legend>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="_username">Kullanıcı Adı</label></td>
+            <td><input type="text" id="_username" required></td>
+          </tr>
+
+          <tr>
+            <td><label for="_password">Sifre</label></td>
+            <td><input type="password" id="_password" required></td>
+          </tr>
+
+          <tr>
+            <td><label for="password_confirm">Sifre Tekrar</label></td>
+            <td><input type="password" id="password_confirm" required></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td>
+              <input type="button" value="< Giris Yap" id="to_login">
+              <input type="submit" value="Kayit" id="register_btn">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+  </form>
+</div>
+
+<div id="game" class="grid_20 alpha omega" style="display: none;">
+
+  <div id="player_ui" class="grid_20 alpha omega">
+    <ul>
+      <li><span id="my_avatar"></span></li>
+      <li><strong id="my_username"></strong></li>
+      <li><strong class="badge blue"><i class="icon-bar-chart"></i> <span id='my_points'></span> puan</strong></li>
+      <li><strong class="badge blue"><i class="icon-caret-up"></i> <span id='my_rank'></span>. sıra</strong></li>
+      <li style="float: right;"><strong id='volume' class="badge green"><i class="icon-volume-up"></i> Ses</strong></li>
+    </ul>
+  </div>
+
+  <div id="lobby" class="grid_20 alpha omega" style="display: none;">
+    <div id="rooms" class="grid_15 alpha panel">
+      <div class="header">
+        Odalar
+      </div>
+
+      <div class="content">
+        <ul id="rooms_list"></ul>
+      </div>
+
+      <div class="footer">
+        <input type="button" value="Yeni Masa" id="create_room">
+      </div>
+    </div>
+
+    <div id="players" class="grid_5 omega panel">
+      <div class="header">
+        Kullanıcılar
+      </div>
+
+      <div class="content">
+        <ul id="players_list"></ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="table" class="grid_20 alpha omega" style="display: none;">
+    <div id='settings' class="grid_4 alpha panel">
+      <div class="header">
+        Ayarlar
+      </div>
+
+      <div class="content">
+        <ul>
+          <li>
+            <label for="match_points">Mac Puani</label>
+
+            <select name="match_points" id="match_points">
+              <option value="5">5</option>
+              <option value="7">7</option>
+              <option value="11">11</option>
+            </select>
+          </li>
+
+          <li>
+            <label for="bonus_points">Gosterge</label>
+
+            <select name="bonus_points" id="bonus_points">
+              <option value="1">Var</option>
+              <option value="0">Yok</option>
+            </select>
+          </li>
+
+          <li>
+            <label for="company_mode">Esli</label>
+
+            <select name="company_mode" id="company_mode">
+              <option value="1">Evet</option>
+              <option value="0">Hayir</option>
+            </select>
+          </li>
+
+          <li>
+            <input type="submit" value="Hazirim" id="ready" class="busy">
+          </li>
+
+          <li>
+            <input type="submit" value="Puanlar" id="score_board">
+          </li>
+
+          <li>
+            <input type="submit" value="Cikis" id="leave_room">
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="canvas" class="grid_16 omega">
+      <i id="leader" class="icon-flag" style="display: none;"></i>
+      <i id="turn" class="icon-star" style="display: none;"></i>
+
+      <div id="player_s" class="player">
+        <span class="avatar"></span>
+        <span class="username"></span>
+      </div>
+      <div id="player_e" class="player">
+        <span class="avatar"></span>
+        <span class="username"></span>
+      </div>
+      <div id="player_n" class="player">
+        <span class="avatar"></span>
+        <span class="username"></span>
+      </div>
+      <div id="player_w" class="player">
+        <span class="avatar"></span>
+        <span class="username"></span>
+      </div>
+
+      <div id="discard_se" class="discard tile_holder"></div>
+      <div id="discard_ne" class="discard tile_holder"></div>
+      <div id="discard_nw" class="discard tile_holder"></div>
+      <div id="discard_sw" class="discard tile_holder"></div>
+
+      <div id="indicator" class="tile"></div>
+
+      <div id='stack' class="tile_holder">
+        <div id="stack_tile" class="tile"></div>
+        <div id='tiles_left'></div>
+      </div>
+
+      <form id='chat_controls'>
+        <label for="chat_input"></label>
+        <input type="text" id="chat_input" placeholder="Sohbet">
+        <input type="button" id="chat_submit" value=">>">
+      </form>
+
+      <div id="cue">
+        <ul id='first_line' data-row='0'>
+          <li class="tile_holder" data-col='0'></li>
+          <li class="tile_holder" data-col='1'></li>
+          <li class="tile_holder" data-col='2'></li>
+          <li class="tile_holder" data-col='3'></li>
+          <li class="tile_holder" data-col='4'></li>
+          <li class="tile_holder" data-col='5'></li>
+          <li class="tile_holder" data-col='6'></li>
+          <li class="tile_holder" data-col='7'></li>
+          <li class="tile_holder" data-col='8'></li>
+          <li class="tile_holder" data-col='9'></li>
+          <li class="tile_holder" data-col='10'></li>
+          <li class="tile_holder" data-col='11'></li>
+          <li class="tile_holder" data-col='12'></li>
+          <li class="tile_holder" data-col='13'></li>
+          <li class="tile_holder" data-col='14'></li>
+        </ul>
+
+        <ul id='second_line' data-row='1'>
+          <li class="tile_holder" data-col='0'></li>
+          <li class="tile_holder" data-col='1'></li>
+          <li class="tile_holder" data-col='2'></li>
+          <li class="tile_holder" data-col='3'></li>
+          <li class="tile_holder" data-col='4'></li>
+          <li class="tile_holder" data-col='5'></li>
+          <li class="tile_holder" data-col='6'></li>
+          <li class="tile_holder" data-col='7'></li>
+          <li class="tile_holder" data-col='8'></li>
+          <li class="tile_holder" data-col='9'></li>
+          <li class="tile_holder" data-col='10'></li>
+          <li class="tile_holder" data-col='11'></li>
+          <li class="tile_holder" data-col='12'></li>
+          <li class="tile_holder" data-col='13'></li>
+          <li class="tile_holder" data-col='14'></li>
+        </ul>
+      </div>
+
+      <div id="chat_history">
+        <ul id="broadcasts"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="packet_inspector" class="grid_20 push_2 panel">
+  <div class="header">
+    PAKETLER
+
+    <ul class="actions">
+      <li id='expand_packets'><i class="icon-resize-full"></i></li>
+      <li id='clear_packets'><i class="icon-trash"></i></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <ul id="packets">
+    </ul>
+  </div>
+</div>
+
+<form id="packet_simulator" class="panel">
+  <div class="header">Paket Similatörü</div>
+
+  <div class="content">
+    <label for="server_packets">Paket: </label>
+    <select name="server_packets" id="server_packets">
+      <option value="">-</option>
+    </select>
+
+    <ul id="packet_builder">
+    </ul>
+  </div>
+
+  <div class="footer">
+    <input type="submit" value="Gönder" id="server_packet_submit">
+  </div>
+</form>
+
+<div id='avatars_box' class="panel dialog" style="display: none;">
+  <div class="header">Resminizi Seçin</div>
+
+  <div class="content">
+    <ul id="avatars_list">
+      <li>e</li>
+      <li>w</li>
+      <li>z</li>
+      <li>w</li>
+      <li>s</li>
+      <li>x</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <input type="submit" value="Degistir" id="change_avatar" class="accept">
+    <input type="submit" value="Iptal" id="close_avatars" class="cancel">
+  </div>
+</div>
+</div>
+
+<ul id="system_messages"></ul>
+
+<div id="connection"></div>
+
+
+<script type="text/javascript">
+
+  function on_connect(e)
+  {
+    Connection.get_instance().on_connect(e);
+  }
+
+  function on_disconnect(e)
+  {
+    Connection.get_instance().on_disconnect(e);
+  }
+
+  function on_read_data(data)
+  {
+    Connection.get_instance().on_read_data(data);
+  }
+
+  function on_io_error(e)
+  {
+    Connection.get_instance().on_io_error(e);
+  }
+
+  function on_security_error(e)
+  {
+    Connection.get_instance().on_security_error(e);
+  }
+
+  swfobject.embedSWF("assets/flash/Connection.swf?" + Math.random() * 100, "connection", "600", "20", "9.0.0", null, {host: '127.0.0.1', port: 843}, null);
+</script>
+
+<script type="text/javascript" src="lib/game.js"></script>
+</body>
+</html>

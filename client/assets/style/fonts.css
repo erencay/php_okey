@@ -1,0 +1,31 @@
+@font-face
+{
+  font-family: 'Bangers';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/bangers.woff) format('woff');
+}
+
+@font-face
+{
+  font-family: 'Tauri';
+  font-style: normal;
+  font-weight: 400;
+  src:url(../fonts/tauri.woff) format('woff');
+}
+
+@font-face
+{
+  font-family: 'Icon';
+  font-style: normal;
+  font-weight: 400;
+  src:url(../fonts/tauri.woff) format('woff');
+}
+
+@font-face
+{
+  font-family: 'Avatar';
+  font-style: normal;
+  font-weight: 400;
+  src:url(../fonts/avatars.woff) format('woff');
+}

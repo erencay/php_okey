@@ -1,0 +1,58 @@
+@white: #FFFFFF;
+@green: #468847;
+@yellow: #f89406;
+@red: #b94a48;
+@blue: #3a87ad;
+@dark: #333333;
+@black: #000000;
+
+.gradient(@top, @bottom) {
+  background: @bottom; /* Old browsers */
+  background: -moz-linear-gradient(top,  @top 0%, @bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@top), color-stop(100%,@bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  @top 0%,@bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  @top 0%,@bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  @top 0%,@bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  @top 0%,@bottom 100%); /* W3C */
+}
+
+.radial-gradient(@center, @outer) {
+  background: -o-radial-gradient(center, ellipse cover, @center 0%, @outer 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, @center 0%, @outer 100%);
+}
+
+.bangers(@color: #FFFFFF, @size: 20px) {
+  font-family: "Bangers";
+  font-size: @size;
+  color: @color;
+  font-weight: 400;
+}
+
+.tauri(@color: #FFFFFF, @size: 14px) {
+  font-family: "Tauri";
+  font-size: @size;
+  color: @color;
+  font-weight: 400;
+}
+
+.avatar(@color: #FFFFFF, @size: 32px) {
+  display: inline-block;
+  font-family: "Avatar";
+  font-size: @size;
+  line-height: @size - 10;
+  width: @size - 4;
+  color: @color;
+  padding: 2px 2px 8px 2px;
+  text-align: center;
+  font-weight: 400;
+  cursor: default;
+  text-transform: lowercase;
+}
+
+.no-select() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
