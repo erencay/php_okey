@@ -6,7 +6,7 @@
 
 >    30-03-2013, 23:10:43
 
-http://www.r10.net/php/1018662-php-ile-online-okey.html#post1067048968
+>    http://www.r10.net/php/1018662-php-ile-online-okey.html#post1067048968
 
 [![alt tag](http://imageshack.us/a/img163/4636/37706702.th.png)](http://img163.imageshack.us/img163/4636/37706702.png)
 
